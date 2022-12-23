@@ -2,7 +2,6 @@
 FROM python:3.9-slim-buster
 
 ARG VERSION=0.1.37
-ARG SIMULATOR_VERSION="1.6.6"
 
 # metadata
 LABEL \
@@ -44,7 +43,7 @@ RUN apt-get update -y \
 COPY . /root/Biosimulators_GillesPy2
 RUN pip install /root/Biosimulators_GillesPy2 \
     && rm -rf /root/Biosimulators_GillesPy2
-RUN pip install "gillespy2==${SIMULATOR_VERSION}"
+RUN pip install "gillespy2"
 ENV VERBOSE=0 \
     MPLBACKEND=PDF
 
